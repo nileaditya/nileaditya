@@ -1,0 +1,106 @@
+<svg width="1200" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e27;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1f3a;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#a855f7;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#00f5ff;stop-opacity:0.8" />
+      <animate attributeName="x1" values="0%;100%;0%" dur="8s" repeatCount="indefinite" />
+      <animate attributeName="x2" values="100%;0%;100%" dur="8s" repeatCount="indefinite" />
+    </linearGradient>
+    
+    <filter id="glow-filter">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.1">
+    <line x1="0" y1="50" x2="1200" y2="50" stroke="#00f5ff" stroke-width="0.5"/>
+    <line x1="0" y1="100" x2="1200" y2="100" stroke="#00f5ff" stroke-width="0.5"/>
+    <line x1="0" y1="150" x2="1200" y2="150" stroke="#00f5ff" stroke-width="0.5"/>
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="#00f5ff" stroke-width="0.5"/>
+    <line x1="0" y1="250" x2="1200" y2="250" stroke="#00f5ff" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Animated circuit lines -->
+  <g opacity="0.3">
+    <path d="M 0,80 L 300,80 L 300,120 L 600,120" stroke="#00f5ff" stroke-width="2" fill="none">
+      <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 1200,220 L 900,220 L 900,180 L 600,180" stroke="#a855f7" stroke-width="2" fill="none">
+      <animate attributeName="stroke-dasharray" values="1000,0;0,1000" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Main name -->
+  <text x="600" y="110" font-family="'Courier New', monospace" font-size="64" font-weight="bold" 
+        fill="url(#glow)" text-anchor="middle" filter="url(#glow-filter)">
+    <tspan>ADITYA NILE</tspan>
+    <animate attributeName="opacity" values="0;1" dur="1s" fill="freeze"/>
+  </text>
+  
+  <!-- Underline -->
+  <line x1="300" y1="125" x2="900" y2="125" stroke="url(#glow)" stroke-width="2">
+    <animate attributeName="x1" values="600;300" dur="1.2s" fill="freeze"/>
+    <animate attributeName="x2" values="600;900" dur="1.2s" fill="freeze"/>
+  </line>
+  
+  <!-- Rotating subtitle -->
+  <g>
+    <text x="600" y="170" font-family="'Courier New', monospace" font-size="24" 
+          fill="#00f5ff" text-anchor="middle" opacity="0">
+      <tspan>Python Engineer</tspan>
+      <animate attributeName="opacity" values="0;1;1;0" dur="6s" begin="1.5s" repeatCount="indefinite"/>
+    </text>
+    
+    <text x="600" y="170" font-family="'Courier New', monospace" font-size="24" 
+          fill="#a855f7" text-anchor="middle" opacity="0">
+      <tspan>Cybersecurity &amp; AI Systems Builder</tspan>
+      <animate attributeName="opacity" values="0;1;1;0" dur="6s" begin="3.5s" repeatCount="indefinite"/>
+    </text>
+    
+    <text x="600" y="170" font-family="'Courier New', monospace" font-size="24" 
+          fill="#00f5ff" text-anchor="middle" opacity="0">
+      <tspan>Clean Architecture Advocate</tspan>
+      <animate attributeName="opacity" values="0;1;1;0" dur="6s" begin="5.5s" repeatCount="indefinite"/>
+    </text>
+  </g>
+  
+  <!-- Terminal cursor -->
+  <rect x="600" y="155" width="12" height="22" fill="#00f5ff">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" 
+                      values="0,0;280,0" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Bottom status bar -->
+  <rect x="0" y="260" width="1200" height="40" fill="#0a0e27" opacity="0.8"/>
+  <text x="20" y="285" font-family="'Courier New', monospace" font-size="14" fill="#00f5ff">
+    <tspan>STATUS: ACTIVE</tspan>
+  </text>
+  <text x="1180" y="285" font-family="'Courier New', monospace" font-size="14" fill="#a855f7" text-anchor="end">
+    <tspan>SYSTEMS ONLINE</tspan>
+  </text>
+  
+  <!-- Pulsing indicators -->
+  <circle cx="180" cy="275" r="4" fill="#00f5ff">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1020" cy="275" r="4" fill="#a855f7">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" begin="0.5s" repeatCount="indefinite"/>
+  </circle>
+</svg>
